@@ -1,0 +1,64 @@
+{
+    "name": "Human",
+    "description": "Human Module",
+    "properties": {
+        "sex": {
+            "description": "Sex of the subject",
+            "datatype": "selection",
+            "sources": "sex"
+        },
+        "age": {
+            "description": "Age of the subject",
+            "datatype": "number",
+            "units": "years"
+        },
+        "education_level": {
+            "description": "",
+            "datatype": "selection",
+            "sources": ["None", "primary", "secondary", "undergraduate", "graduate"]
+        },
+        "handedness": {
+            "description": "Handedness as self rated by participant",
+            "datatype": "selection",
+            "sources": ["right", "left", "ambidextrous"]
+        },
+        "handedness_value": {
+            "description": "Handedness based on Edinburgh handedness inventory",
+            "datatype": "text",
+            "sources": "ehi-10"
+        },
+        "primary_language": {
+            "description": "Primary language of the subject",
+            "datatype": "selection",
+            "sources": "iso639-1"
+        },
+        "secondary_language": {
+            "description": "Secondary language of the subject",
+            "datatype": "selection",
+            "sources": "iso639-1"
+        },
+        "visual_acuity": {
+            "description": "Visual acuity",
+            "datatype": "selection",
+            "sources": ["normal", "abnormal"]
+        },
+        "auditory_sensitivity": {
+            "description": "Auditory sensitivity based on an audiogram as self-reported by the participant.",
+            "datatype": "longtext"
+        },
+        "compensation": {
+            "description": "Money paid to the participant for participating in the study.",
+            "datatype": "selection",
+            "sources": ["payment", "credit", "not compensated"]
+        },
+        "compensation_value": {
+            "description": "Money paid to the participant for participating in the study.",
+            "datatype": "selection",
+            "sources": ["EUR", "USD", "University Credits"]
+        },
+        "additional_comments": {
+            "description": "",
+            "datatype": "longtext"
+        }
+    }
+}

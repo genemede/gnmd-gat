@@ -1,0 +1,308 @@
+[
+    {
+        "institute": " institute ",
+        "name": " name ",
+        "role": " role ",
+        "email": " email "
+    },
+    {
+        "institute": " MPI ",
+        "name": " Lucia Melloni, MPI and NYU ",
+        "role": " Center PI, Administration, Data Management ",
+        "email": " lucia.melloni@ae.mpg.de "
+    },
+    {
+        "institute": " MPI ",
+        "name": " Tanya Brown, MPI ",
+        "role": " Scientific Coordinator ",
+        "email": " tanya.brown@ae.mpg.de "
+    },
+    {
+        "institute": " TAU ",
+        "name": " Liad Mudrik, Tel Aviv university ",
+        "role": " Center Co-PI, Data monitoring team ",
+        "email": " mudrikli@tauex.tau.ac.il "
+    },
+    {
+        "institute": " REED COLLEGE ",
+        "name": " Michael Pitts, Reed College ",
+        "role": " Center Co-PI, Data monitoring team ",
+        "email": " mpitts@reed.edu "
+    },
+    {
+        "institute": " UNICOG ",
+        "name": " Stanislas Dehaene, UNICOG ",
+        "role": " Data monitoring team (PI) ",
+        "email": " stanislas.dehaene@gmail.com "
+    },
+    {
+        "institute": " TAU ",
+        "name": " Rony Hirschhorn, Tel Aviv University ",
+        "role": " Data monitoring team (RA) ",
+        "email": " hirschhorn@mail.tau.ac.il "
+    },
+    {
+        "institute": " UNICOG ",
+        "name": " UNICOG ",
+        "role": " Data monitoring team (PD) ",
+        "email": "  "
+    },
+    {
+        "institute": " WI ",
+        "name": " Giulio Tononi, University of Wisconsin, Madison ",
+        "role": " Data monitoring team (PI) ",
+        "email": " gtononi@wisc.edu "
+    },
+    {
+        "institute": " WI ",
+        "name": " Urzula Gorska, University of Wisconsin, Madison ",
+        "role": " Data monitoring team (PD) ",
+        "email": " gorska@wisc.edu "
+    },
+    {
+        "institute": " WI ",
+        "name": " Maximillian Grobbelaar ",
+        "role": " Data monitoring team (PD) ",
+        "email": " grobbelaar@neurology.wisc.edu "
+    },
+    {
+        "institute": " WI ",
+        "name": " Melanie Boly, University of Wisconsin, Madison ",
+        "role": " Data monitoring team (project contributor) ",
+        "email": " boly@neurology.wisc.edu "
+    },
+    {
+        "institute": " BU ",
+        "name": " Ole Jensen, Birmingham University ",
+        "role": " MEG core, site 1 (PI) ",
+        "email": " o.jensen@bham.ac.uk "
+    },
+    {
+        "institute": " BU ",
+        "name": " Oscar Ferrante, Birmingham University ",
+        "role": " MEG core, site 1 (PD) ",
+        "email": " o.Ferrante@bham.ac.uk "
+    },
+    {
+        "institute": " PKU ",
+        "name": " Huan Luo, Peking University ",
+        "role": " MEG core, site 2 (PI) ",
+        "email": " huan.luo@pku.edu.cn "
+    },
+    {
+        "institute": " PKU ",
+        "name": " Ling Liu, Peking University ",
+        "role": " MEG core, site 2 (PD) ",
+        "email": " ling.liu@pku.edu.cn "
+    },
+    {
+        "institute": " Donders ",
+        "name": " Floris de Lange, Donders ",
+        "role": " fMRI, site 1 (PI) ",
+        "email": " florisdelange@gmail.com "
+    },
+    {
+        "institute": " Donders ",
+        "name": " Yamil Vidal, Donders ",
+        "role": " fMRI, site 1 (PD) ",
+        "email": " hvidaldossantos@gmail.com "
+    },
+    {
+        "institute": " Yale ",
+        "name": " Hal Blumenfeld, Yale University ",
+        "role": " fMRI, site 2 (PI) ",
+        "email": " hal.blumenfeld@yale.edu "
+    },
+    {
+        "institute": " Yale ",
+        "name": " Aya Khalaf, Yale University ",
+        "role": " fMRI, site 2 (PD) ",
+        "email": " aya.khalaf@yale.edu "
+    },
+    {
+        "institute": " Harvard ",
+        "name": " Gabriel Kreiman, Harvard University ",
+        "role": " ECoG, site 1 (PI) ",
+        "email": " Gabriel.Kreiman@childrens.harvard.edu "
+    },
+    {
+        "institute": " Harvard ",
+        "name": " Marcelo Armedariz Gil, Harvard University ",
+        "role": " ECoG, site 1 (PI) ",
+        "email": " Marcelo.ArmendarizGil@childrens.harvard.edu "
+    },
+    {
+        "institute": " NYU ",
+        "name": " Simon Henin, NYU ",
+        "role": " ECoG, site 2 (PI) ",
+        "email": " Simon.Henin@nyulangone.org "
+    },
+    {
+        "institute": " MPI ",
+        "name": " Alex Lepauvre, MPI ",
+        "role": " ECoG, site 2 (PhD candidate) ",
+        "email": " Alex.Lepauvre@ae.mpg.de "
+    },
+    {
+        "institute": " NYU ",
+        "name": " Alia Seedat, NYU ",
+        "role": " ECoG, site 2 ",
+        "email": " Alia.Seedat@nyulangone.org "
+    },
+    {
+        "institute": " NYU ",
+        "name": " Jay Jeschke, NYU ",
+        "role": " ECoG, site 2 (RA) ",
+        "email": " Jay.Jeschke@nyulangone.org "
+    },
+    {
+        "institute": " St John's University ",
+        "name": " Francis Fallon ",
+        "role": " Project contributor ",
+        "email": " fallon.francis@gmail.com "
+    },
+    {
+        "institute": " NYU ",
+        "name": " David Chalmers ",
+        "role": " Scientific Advisory Board ",
+        "email": " chalmers@nyu.edu "
+    },
+    {
+        "institute": " Allen Institute ",
+        "name": " Christof Koch ",
+        "role": " Scientific Advisory Board ",
+        "email": " ChristofK@alleninstitute.org "
+    },
+    {
+        "institute": " McGill ",
+        "name": " Sylvain Baillet ",
+        "role": " Scientific Advisory Board (MEG) ",
+        "email": " sylvain.baillet@mcgill.ca "
+    },
+    {
+        "institute": " Penn U ",
+        "name": " Michael Kahana ",
+        "role": " Scientific Advisory Board (ECoG) ",
+        "email": " kahana@psych.upenn.edu, kahana-admin@sas.upenn.edu "
+    },
+    {
+        "institute": "  ",
+        "name": " Essa Yacoub ",
+        "role": " Scientific Advisory Board (MRI) ",
+        "email": " yaco0006@umn.edu "
+    },
+    {
+        "institute": "  ",
+        "name": " Radoslaw Cichy ",
+        "role": " Scientific Advisory Board (Multimodal integration) ",
+        "email": " rmcichy@googlemail.com "
+    },
+    {
+        "institute": " CAMH ",
+        "name": " Sean Hill, EPFL Krembil Centre for Neuroinformatics CAMH ",
+        "role": "  ",
+        "email": " sean.hill@camh.ca "
+    },
+    {
+        "institute": " IBL ",
+        "name": " Niccolò Bonacchi ",
+        "role": " International Brain Lab ",
+        "email": "  "
+    },
+    {
+        "institute": " TWCF ",
+        "name": " Dawid Potgieter ",
+        "role": " Program Officer ",
+        "email": " dawid@templetonworldcharity.org "
+    },
+    {
+        "institute": " (Tall Guy Productions) ",
+        "name": " Konstantinos Vasileiadis ",
+        "role": " Video Game (VG) designer - external ",
+        "email": " mr.kon.vas@gmail.com "
+    },
+    {
+        "institute": " (Tall Guy Productions) ",
+        "name": " Aris Semertzidis ",
+        "role": " Video Game (VG) designer - external ",
+        "email": " a.semertzidis@gmail.com "
+    },
+    {
+        "institute": " Flywheel (formerly Radiologics ) ",
+        "name": " Dan Marcus ",
+        "role": " XNAT ",
+        "email": "  "
+    },
+    {
+        "institute": " Donders ",
+        "name": " David Richter, Donders ",
+        "role": " fMRI, site 1 (PD) ",
+        "email": " D.Richter@donders.ru.nl "
+    },
+    {
+        "institute": " NYU ",
+        "name": " Stephanie Montenegro, NYU ",
+        "role": " ECoG, site 2 (RA) ",
+        "email": " Stephanie.Montenegro@nyulangone.org "
+    },
+    {
+        "institute": " Harvard ",
+        "name": " Katarina Bentz, Harvard University ",
+        "role": " ECoG, site 1 (PD) ",
+        "email": " katarina@bendtz.se "
+    },
+    {
+        "institute": " Yale ",
+        "name": " Abdel Sharaf, Yale University ",
+        "role": " fMRI, site 2 (RA) ",
+        "email": " abdelrahman.sharafeldin@yale.edu "
+    },
+    {
+        "institute": " Donders ",
+        "name": " Sarah Kusch, Donders ",
+        "role": " fMRI, site 1 (RA) ",
+        "email": " sarah.kusch@student.ru.nl "
+    },
+    {
+        "institute": " BU ",
+        "name": " Tara Ghafari, Birmingham University ",
+        "role": " MEG core, site 1 (RA) ",
+        "email": " tghafari@bham.ac.uk "
+    },
+    {
+        "institute": " PKU ",
+        "name": " Shujun Yang, Peking University ",
+        "role": " MEG core, site 2(RA) ",
+        "email": " shujunyang0216@gmail.com "
+    },
+    {
+        "institute": " Donders ",
+        "name": " Monique Smulders ",
+        "role": " fMRI, site 1 (RA) ",
+        "email": " [monique.smulders@donders.ru.nl](mailto:monique.smulders@donders.ru.nl) "
+    },
+    {
+        "institute": " BU ",
+        "name": " Dorottya Hetenyi, Birmingham University ",
+        "role": " MEG core, site 1 (RA) ",
+        "email": " D.Hetenyi@bham.ac.uk "
+    },
+    {
+        "institute": " WI ",
+        "name": " Csaba Kozma, University of Wisconsin, Madison ",
+        "role": " Data monitoring team (PD) ",
+        "email": " ckozma@wisc.edu "
+    },
+    {
+        "institute": " Harvard ",
+        "name": " David Mazumder, Harvard University ",
+        "role": " ECoG, site 1 (PhD candidate) ",
+        "email": " mazumder.david@gmail.com "
+    },
+    {
+        "institute": " NYU ",
+        "name": " Sasha Devore, NYU ",
+        "role": " ECoG, site 2 (PI) ",
+        "email": " Sasha.devore@nyulangone.org "
+    }
+]

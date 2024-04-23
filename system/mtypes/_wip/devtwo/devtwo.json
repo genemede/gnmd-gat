@@ -1,0 +1,14 @@
+{
+    "name": "Test Metadata Type",
+    "description": "For mtype testing and development purposes",
+    "properties": {
+        "dev_2_field_a": {
+            "label": "test"
+        },
+        "include:devtest.incb": "",
+        "include:devtest.devtwo.incc": "",
+        "dev_2_field_b": {
+            "label": "test"
+        }
+    }
+}

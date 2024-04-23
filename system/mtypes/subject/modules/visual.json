@@ -1,0 +1,30 @@
+{
+    "name": "Visual",
+    "description": "Visual module",
+    "properties":{
+        "visual_correction_method": {
+            "description": "",
+            "datatype": "selection",
+            "sources": ["glasses", "contact lenses"]
+        },
+        "visual_eye_dominance": {
+            "description": "Dominance of one eye over the other as self rated by participant",
+            "datatype": "selection",
+            "sources": ["right", "left", "None"]
+        },
+        "visual_lens_power_left": {
+            "description": "Numeric values indicating the power of the lens used to correct to normal vision in Diopters.",
+            "units": ["+ Diopter", "- Diopter"]
+        },
+        "visual_lens_power_right": {
+            "description": "Numeric values indicating the power of the lens used to correct to normal vision in Diopters.",
+            "levels": null,
+            "units": ["+ Diopter", "- Diopter"]
+        },
+        "visual_colorblind": {
+            "description": "",
+            "datatype": "selection",
+            "sources": ["no", "yes"]
+        }
+    }
+}

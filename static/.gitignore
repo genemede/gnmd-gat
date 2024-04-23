@@ -1,0 +1,3 @@
+# We use this folder to store GUI built files and serve them through the GAT
+*
+!.gitignore

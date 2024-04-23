@@ -1,0 +1,33 @@
+{
+    "name": "MPI",
+    "description": "MPI module",
+    "properties":{
+        "race": {
+            "description": "The race of the subject.",
+            "datatype": "selection",
+            "sources": "race-nih",
+            "help": "NIH based list."
+        },
+        "health_history_of_medical_conditions": {
+            "description": "Known history of medical conditions.",
+            "datatype": "longtext"
+        },
+        "psychiatric_history": {
+            "description": "Known history of psychiatric medical conditions.",
+            "datatype": "longtext"
+        },
+        "substance_use": {
+            "description": "Known history of substance / drug use.",
+            "datatype": "longtext"
+        },
+        "history_of_medication": {
+            "description": "Known history of medication.",
+            "datatype": "longtext"
+        },
+        "musical_training": {
+            "description": "",
+            "datatype": "selection",
+            "sources": ["no", "yes"]
+        }
+    }
+}

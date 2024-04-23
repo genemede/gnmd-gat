@@ -1,0 +1,89 @@
+{
+    "name": "lab",
+    "description": "Laboratory",
+    "fa_icon": "fas fa-home",
+    "datatype": "mtype",
+    "sources": {
+        "position": {
+            "name": "Position",
+            "description": "Position held by a researcher in a lab",
+            "codes": [
+                "principal_investigator|Principal Investigator",
+                "research_scientist",
+                "phd_student",
+                "postdoc",
+                "research_assistant",
+                "scientific_coordinator",
+                "lab_manager",
+                "recruiter",
+                "legal_representative",
+                "data_manager",
+                "bachelor_student",
+                "master_student"
+            ]
+        }
+    },
+    "properties": {
+        "members": {
+            "description": "Members of the laboratory",
+            "datatype": "link",
+            "sources": "researcher",
+            "properties": {
+                "position": {
+                    "description": "Position held by the researcher in the lab.",
+                    "datatype": "selection",
+                    "sources": "lab.position"
+                },
+                "date_joined": {
+                    "description": "Date the researcher joined the lab.",
+                    "datatype": "date",
+                    "_comment": "this falls into the category of complex links, in which the link itself has more meaningful data"
+                },
+                "is_active": {
+                    "description": "Indicator is the researcher is still currently active in the project.",
+                    "datatype": "bool",
+                    "values": ["no", "yes"],
+                    "_comment": "this falls into the category of complex links, in which the link itself has more meaningful data"
+                }
+            }
+        },
+        "official_name": {
+            "description": "Official name of the laboratory.",
+            "datatype": "text",
+            "help" : ""
+        },
+        "principal_investigator": {
+            "description": "Name of the principal investigator.",
+            "datatype": "text"
+        },
+        "institute": {
+            "description": "Name of the institution.",
+            "datatype": "longtext"
+        },
+        "department": {
+            "description": "Name of the department.",
+            "datatype": "text"
+        },
+        "location": {
+            "description": "Location of the institute and department.",
+            "datatype": "longtext"
+        },
+        "contact_phone": {
+            "description": "Contact telephone number.",
+            "datatype": "text"
+        },
+        "contact_email": {
+            "description": "Contact email.",
+            "datatype": "text"
+        },
+        "contact_website": {
+            "description": "Contact website.",
+            "datatype": "text"
+        },
+        "contact_address": {
+            "description": "Contact address.",
+            "datatype": "longtext"
+        }
+    }
+}
+

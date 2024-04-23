@@ -1,0 +1,33 @@
+{
+    "properties":{
+        "project_website": {
+            "description": "URL to the project website."
+        },
+        "preregistration": {
+            "description": "Link to the preregistration document."
+        },
+        "communication": {
+            "description": "Various means used to communicate within the project.",
+            "datatype": "selection",
+            "sources": ["posters", "talks"]
+        },
+        "publications": {
+            "description": "List of DOIs of publications arising from the project.",
+            "datatype": "longtext"
+        },
+        "code_repository": {
+            "description": "URL to the code repository / organization repository."
+        },
+        "data_repository": {
+            "description": "URL to the data repository."
+        },
+        "outreach": {
+            "description": "Resources for various outreach initiatives e.g. twitter, blogs etc.",
+            "datatype": "longtext"
+        },
+        "digital_resources": {
+            "description": "List of digital resources used within the project. e.g. wiki, logo etc.",
+            "datatype": "longtext"
+        }
+    }
+}

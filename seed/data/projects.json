@@ -1,0 +1,131 @@
+[
+    {
+        "guid": "",
+        "datetime": "",
+        "name": "ARC-COGITATE",
+        "description": "",
+        "mtype": "project",
+        "resources": {
+            "files": [""],
+            "uri": [""]
+        },
+        "properties": {
+            "labs": ["*guid.labs.json"],
+            "subjects": ["*guid.subjects.json"],
+            "project_start_date": "September 1, 2019",
+            "project_end_date": "December 31, 2023",
+            "project_lead": "Lucia Melloni",
+            "members": [
+                "Katarina Bendtz, Hal Blumenfeld, Melanie Boly, Tanya Brown, David Chalmers, Floris de Lange,  Stanislas Dehaene, Sasha Devore, Francis Fallon, Oscar Ferrante, Urszula Górska, Maximilian Grobbelaar, Simon Henin, Rony Hirschhorn, Ole Jensen, Aya Khalaf, Csaba Kozma, Gabriel Kreiman, Alex Lepauvre, Ling Liu, Huan Luo, Lucia Melloni, Liad Mudrik, Michael Pitts,  David Rahul Mazumder, David Richter, Chris tof Koch, Giulio Tononi, Yamil Vidal"
+            ],
+            "project_manager": "Tanya Brown",
+            "data_manager": "",
+            "project_digital_tools": {
+                "slack": "https://twcf-arc.slab.com",
+                "slab": "",
+                "keeper": "",
+                "trello": ""
+            },
+            "project_legacy_management": [""],
+            "project_website": "https://www.arc-cogitate.com/",
+            "preregistration": "https://osf.io/mbcfy/"
+        },
+        "custom": {
+            "project_funding": {
+                "funding_agency": "Templeton World Charity Foundation (TWCF)",
+                "grant_ID": "TWCF0389",
+                "grant_application": "Accelerating research on Consciousness: An adversarial collaboration to test contradictory predictions of Global Neuronal Workshop and Integrated Information Theory' (COGITATE)",
+                "grantee": "Max-Planck-Gesellschaft zur Förderung der Wissenschaften e.V.",
+                "legal_signatory": "Professor Dr. Frederik Ullén (formerly Melanie Wald-Fuhrmann",
+                "funding_start_date": "September 1, 2019",
+                "funding_end_date": "December 31, 2023",
+                "funding_amount": "5,380,299.31",
+                "funding_currency": "euro",
+                "grant_website": "https://doi.org/10.54224/20389"
+            },
+            "project_output": {
+                "project_website": "https://arc-cogitate.com",
+                "preregistration": "https://osf.io/mbcfy/",
+                "communication": "",
+                "publications": [
+                    "doi.org/10.1038/s41562-021-01284-5",
+                    "doi:10.1016/j.neuroimage.2022.119047",
+                    "doi:10.1126/science.abj3259",
+                    "https://osf.io/mbcfy/"
+                ],
+                "code_repository": "https://github.com/Cogitate-consortium",
+                "data_repository_xnat": "https://xnat.prj.ae.mpg.de",
+                "outreach": "https://twitter.com/ArcCogitate",
+                "digital_resources": {
+                    "logo": "https://keeper.mpdl.mpg.de/d/94bfc659eed842b9ad7a/"
+                }
+            },
+            "project_ethics": [
+                {
+                    "responsible_member": "Dr. Melanie Boly",
+                    "responsible_institute": "UW-Madison",
+                    "protocol_number": "ID: 2017-1299",
+                    "approving_committee": "IRB UW-Madison",
+                    "start_date": "30/06/2021",
+                    "end_date": "27/12/2023",
+                    "required_certifications": "HIPAA, CITI training"
+                },
+                {
+                    "responsible_member": "Ole Jensen",
+                    "responsible_institute": "Centre for Human Brain Research, University of Birmingham",
+                    "protocol_number": "ERN_18-0226AP20",
+                    "approving_committee": "Science, Technology, Engineering and Mathematics Ethical Review Committee",
+                    "start_date": "1-Jan-2020",
+                    "end_date": "31-Dec-2022 (or unlimited?)",
+                    "required_certifications": ""
+                },
+                {
+                    "responsible_member": "Huan Luo",
+                    "responsible_institute": "School of Psychological and Cognitive Sciences, Peking University",
+                    "protocol_number": "2019-06-03",
+                    "approving_committee": "Committee for Protecting Human and Animal Subjects",
+                    "start_date": "June 21 2019",
+                    "end_date": "unlimited",
+                    "required_certifications": ""
+                },
+                {
+                    "responsible_member": "Floris de Lange",
+                    "responsible_institute": "Donders Institute (Centre for Cognitive Neuroimaging)",
+                    "protocol_number": "File number: 2014-288NL number: NL45659.091.14",
+                    "approving_committee": "Commissie Mensgebonden Onderzoek Regio Arnhem-Nijmegen",
+                    "start_date": "11-12-2018",
+                    "end_date": "unlimited",
+                    "required_certifications": ""
+                },
+                {
+                    "responsible_member": "Hal Blumenfeld",
+                    "responsible_institute": "Yale School of Medicine",
+                    "protocol_number": "2000027591",
+                    "approving_committee": "Human Research Protection Program Institutional Review Board",
+                    "start_date": "5/12/2020",
+                    "end_date": "unlimited",
+                    "required_certifications": ""
+                },
+                {
+                    "responsible_member": "Simon Henin (formerly Sasha Devore)",
+                    "responsible_institute": "New York University Langone Health",
+                    "protocol_number": "i14-02101_CR6",
+                    "approving_committee": "Office of Science and Research Institutional Review Board",
+                    "start_date": "11/5/2019",
+                    "end_date": "Sept 19, 2023",
+                    "required_certifications": ""
+                },
+                {
+                    "responsible_member": "Gabriel Kreiman",
+                    "responsible_institute": "Children's Hospital Corporation d/b/a Boston Children's Hospital",
+                    "protocol_number": "04-05-065R",
+                    "approving_committee": "Boston Children's Hospital Institutional Review Board (IRB)",
+                    "start_date": "01/01/2000",
+                    "end_date": "11/30/2023",
+                    "required_certifications": ""
+                }
+            ]
+        },
+        "bids": {}
+    }
+]

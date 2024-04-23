@@ -1,0 +1,119 @@
+{
+    "name": "researcher",
+    "description": "Researcher",
+    "fa_icon": "fas fa-user",
+    "resources": {
+        "project": "*guid.projects.json",
+        "lab": "*guid.labs.json",
+        "uri": [""]
+    },
+    "properties": {
+        "subject_fields": {
+            "description": "Subject fields of the researcher.",
+            "datatype": "longtext"
+        },
+        "latest_educational_qualification": {
+            "datatype": "selection",
+            "description": "Latest educational qualification.",
+            "sources": ["high_school|High School", "bachelor|Bachelor", "master|Master", "phd|PHD"]
+        },
+        "education_level": {
+            "description": "",
+            "datatype": "selection",
+            "sources": ["none", "primary", "secondary", "undergraduate", "graduate"]
+        },
+        "certifications": {
+            "description": "Additional certifications, e.g. FELASA B animal handling course",
+            "datatype": "longtext"
+        },
+        "contact_phone": {
+            "description": "Contact phone number."
+        },
+        "contact_email": {
+            "description": "Contact email address."
+        },
+        "contact_website": {
+            "description": "Contact website URL."
+        },
+        "contact_address": {
+            "description": "Contact address.",
+            "datatype": "longtext"
+        },
+        "projects": {
+            "description": "List of projects the researcher is a part of. The index of the projects should match the project_role field below.",
+            "datatype": "longtext"
+        },
+        "project_role": {
+            "description": "Role of the researcher in the project.",
+            "datatype": "longtext"
+        },
+        "sex": {
+            "description": "Sex of the subject",
+            "datatype": "selection",
+            "sources": "sex"
+        },
+        "age": {
+            "description": "Age of the subject",
+            "datatype": "number",
+            "units": "years"
+        },
+        "handedness": {
+            "description": "Handedness as self rated by participant",
+            "datatype": "selection",
+            "sources": ["right", "left", "ambidextrous"]
+        },
+        "handedness_value": {
+            "description": "Handedness based on Edinburgh handedness inventory",
+            "datatype": "selection",
+            "sources": "ehi-10"
+        },
+        "primary_language": {
+            "description": "Primary language of the subject",
+            "datatype": "selection",
+            "sources": "iso639-1"
+        },
+        "secondary_language": {
+            "description": "Secondary language of the subject",
+            "datatype": "selection",
+            "sources": "iso639-1"
+        },
+        "additional_comments": {
+            "description": "Additional comments if any.",
+            "datatype": "longtext"
+        }
+    },
+    "custom": {},
+    "wip": {
+        "first_name": {
+            "description": "First name of the researcher.",
+            "_comment": "first + last names aren't applicable to several countries/cultures"
+        },
+        "last_name": {
+            "description": "Last name of the researcher.",
+            "_comment": "same as first_name"
+        },
+        "lab_affiliation": {
+            "description": "Affiliation of the researcher.",
+            "datatype": "relation",
+            "sources": "lab",
+            "_comment": "moved to lab as a link mechanic"
+        },
+        "position": {
+            "description": "Position held by the researcher in the lab.",
+            "datatype": "selection",
+            "sources": "researcher.position",
+            "_comment": "moved to lab as a link mechanic"
+        },
+        "date_joined": {
+            "description": "Date the researcher joined the lab.",
+            "datatype": "date",
+            "_comment": "moved to lab as a link mechanic"
+        },
+        "is_active": {
+            "description": "Indicator is the researcher is still currently active in the project.",
+            "datatype": "bool",
+            "values": ["no", "yes"],
+            "_comment": "moved to lab as a link mechanic"
+        }
+    }
+}

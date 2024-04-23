@@ -1,0 +1,34 @@
+{
+    "name": "Test Metadata Type",
+    "description": "For mtype testing and development purposes",
+    "properties": {
+        "group:devgroup1": {
+            "properties": {
+                "grp_1_field_1": {
+
+                },
+                "grp_1_field_2": {
+
+                }
+            }
+        },
+        "INCLUDE:DEVTEST.INCA": "",
+        "devfield": {
+            "label": "test"
+        },
+        "dev_longtext_field": {
+            "label": "Long Text",
+            "description": "Textual field with only one instance # can be used for a tooltip",
+            "help": "Short help text",
+            "datatype": "longtext"
+        },
+        "dev_text_field_a": {
+            "label": "Text",
+            "description": "Textual field with only one instance # can be used for a tooltip",
+            "help": "Short help text",
+            "datatype": "text"
+        },
+        "dev_text_field_b": {
+        }
+    }
+}

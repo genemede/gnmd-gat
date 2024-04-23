@@ -1,0 +1,30 @@
+{
+    "name": "Ethics",
+    "description": "Ethics module",
+    "properties":{
+        "responsible_member":{
+            "description":"Name of the person responsible for the ethical approval."
+        },
+        "responsible_institute":{
+            "description":"Name of the institute granting the ethical approval."
+        },
+        "protocol_number":{
+            "description":"Protocol number of the ethics approval."
+        },
+        "approving_committee":{
+            "description":"Members of the ethical approval committee."
+        },
+        "start_date":{
+            "description":"Start date of the ethical approval.",
+            "datatype": "datetime"
+        },
+        "end_date":{
+            "description":"End date of the ethical approval.",
+            "datatype": "datetime"
+        },
+        "required_certifications":{
+            "description":"List of certifications required as part of the ethical approval. e.g. training in handling animals etc.",
+            "datatype": "longtext"
+        }
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "name": "subject",
+    "description": "",
+    "properties": {
+        "creator": {
+            "description": "Person who collected the participant information.",
+            "datatype": "link",
+            "sources": "researcher",
+            "max": 1,
+            "help": "name one of experimenters"
+        },
+        "person_responsible": {
+            "description": "Person who is responsible for the participant information.",
+            "datatype": "link",
+            "sources": "researcher",
+            "max": 1,
+            "help": "name one of experimenters"
+        }
+    }
+}

@@ -1,0 +1,36 @@
+{
+    "properties":{
+        "funding_agency": {
+            "description": "Name of the funding agency."
+        },
+        "grant_ID": {
+            "description": "Grant ID"
+        },
+        "grant_application": {
+            "description": "Grant application document."
+        },
+        "grantee": {
+            "description": "Name of the person receiving the funding."
+        },
+        "legal_signatory": {
+            "description": "Name of the legal signatory for the funding."
+        },
+        "funding_start_date": {
+            "description": "Start date of the grant.",
+            "datatype": "datetime"
+        },
+        "funding_end_date": {
+            "description": "End date of the grant",
+            "datatype": "datetime"
+        },
+        "funding_amount": {
+            "description": "Amount of funding money"
+        },
+        "funding_currency": {
+            "description": "Currency in which the funding amount is released."
+        },
+        "grant_website": {
+            "description": "Website of the grant."
+        }
+    }
+}

@@ -1,0 +1,36 @@
+{
+    "name": "Edinburgh Handedness Inventory",
+    "description": "Edinburgh Handedness Inventory",
+    "codes": {
+        "1": {
+            "value": "Writing"
+        },
+        "2": {
+            "value": "Drawing"
+        },
+        "3": {
+            "value": "Throwing"
+        },
+        "4": {
+            "value": "Scissors"
+        },
+        "5": {
+            "value": "Toothbrush"
+        },
+        "6": {
+            "value": "Knife (without fork)"
+        },
+        "7": {
+            "value": "Spoon"
+        },
+        "8": {
+            "value": "Broom"
+        },
+        "9": {
+            "value": "Striking a match"
+        },
+        "10": {
+            "value": "Opening a box (lid)"
+        }
+    }
+}

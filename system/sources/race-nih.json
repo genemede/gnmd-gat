@@ -1,0 +1,24 @@
+{
+    "name": "Race standard table (NIH)",
+    "description": "Values for Race fields",
+    "codes": {
+        "aian": {
+            "value": "American Indian or Alaska Native"
+        },
+        "asian": {
+            "value": "Asian"
+        },
+        "baa": {
+            "value": "Black or African American"
+        },
+        "hl": {
+            "value": "Hispanic or Latino"
+        },
+        "nhpi": {
+            "value": "Native Hawaiian or other Pacific Islander"
+        },
+        "white": {
+            "value": "White"
+        }
+    }
+}

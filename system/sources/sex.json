@@ -1,0 +1,18 @@
+{
+    "name": "Sex standard table",
+    "description": "Values for sex fields",
+    "codes": {
+        "female": {
+            "value": "Female"
+        },
+        "male": {
+            "value": "Male"
+        },
+        "other": {
+            "value": "Other"
+        },
+        "prefer not to answer": {
+            "value": "prefer not to answer"
+        }
+    }
+}

@@ -1,0 +1,227 @@
+[
+    {
+        "guid": "",
+        "name": "BULAB",
+        "mtype": "lab",
+        "datetime": "",
+        "description": "",
+        "resources": {
+        },
+        "properties": {
+            "official_name": "Neuronal Oscillations Research group",
+            "principal_investigator": ["Ole Jensen"],
+            "institute": "University of Birmingham",
+            "department": "Centre for Human Brain Health",
+            "location": "Birmingham, United Kingdom",
+            "contact_phone": "0121 414 8509",
+            "contact_email": "o.jensen@bham.ac.uk",
+            "contact_website": "https://neuosc.com/, https://www.birmingham.ac.uk/staff/profiles/psychology/jensen-ole.aspx",
+            "contact_address": "School of Psychology, University of Birmingham, Edgbaston, Birmingham, B15 2TT, UK"
+        },
+        "custom": {},
+        "bids": {
+            "InstitutionName": "*properties.institute",
+            "InstitutionAddress": "*properties.contact_address"
+        }
+    },
+    {
+        "guid": "",
+        "name": "PULAB",
+        "mtype": "lab",
+        "datetime": "",
+        "description": "",
+        "resources": {
+        },
+        "properties": {
+            "official_name": "School of Psychological and Cognitive Sciences, Peking University",
+            "principal_investigator": ["Huan Luo"],
+            "institute": "Peking University",
+            "department": "IDG/McGovern Institute for Brain Research",
+            "location": "Beijing, China",
+            "contact_phone": "",
+            "contact_email": "huan.luo@pku.edu.cn",
+            "contact_website": "https://mgv.pku.edu.cn/english/people/lbd/sopacs/360652.htm",
+            "contact_address": "Room 1703, Wangkezhen Building，Peking University, 5 Yiheyuan Road, Haidian, Beijing, 100871, China"
+        },
+        "custom": {},
+        "bids": {
+            "InstitutionName": "*properties.institute",
+            "InstitutionAddress": "*properties.contact_address"
+        }
+    },
+    {
+        "guid": "",
+        "name": "YALELAB",
+        "mtype": "lab",
+        "datetime": "",
+        "description": "",
+        "resources": {
+        },
+        "properties": {
+            "official_name": "Blumenfeld Lab",
+            "principal_investigator": ["Hal Blumenfeld"],
+            "institute": "Yale School of Medicine",
+            "department": "Neurology",
+            "location": "New Haven, CT, United States",
+            "contact_phone": "1.203.785.3865",
+            "contact_email": "hal.blumenfeld@yale.edu",
+            "contact_website": "https://medicine.yale.edu/profile/hal-blumenfeld/",
+            "contact_address": "Department of Neurology, Yale School of Medicine, P.O. Box 208018, New Haven, CT 06520-8018"
+        },
+        "custom": {},
+        "bids": {
+            "InstitutionName": "*properties.institute",
+            "InstitutionAddress": "*properties.contact_address"
+        }
+    },
+    {
+        "guid": "",
+        "name": "Donders",
+        "mtype": "lab",
+        "datetime": "",
+        "description": "",
+        "resources": {
+        },
+        "properties": {
+            "official_name": "Predictive Brain Lab",
+            "principal_investigator": ["Floris de Lange"],
+            "institute": "Donders Institute (Centre for Cognitive Neuroimaging)",
+            "department": "",
+            "location": "Nijmegen, The Netherlands",
+            "contact_phone": "+31 24 36 10658",
+            "contact_email": "floris.delange@donders.ru.nl",
+            "contact_website": "https://www.predictivebrainlab.com/",
+            "contact_address": "Room 01.117, Kapittelweg 29, P.O. Box 9101, NL – 6500 HB Nijmegen, the Netherlands"
+        },
+        "custom": {},
+        "bids": {
+            "InstitutionName": "*properties.institute",
+            "InstitutionAddress": "*properties.contact_address"
+        }
+    },
+    {
+        "guid": "",
+        "name": "NYULAB",
+        "mtype": "lab",
+        "datetime": "",
+        "description": "",
+        "resources": {
+        },
+        "properties": {
+            "official_name": "NYU Memory and Neuromodulation Lab",
+            "principal_investigator": ["Simon Henin (formerly Sasha Devore)"],
+            "institute": "New York University Langone Health",
+            "department": "Neurology",
+            "location": "New York, NY, United States",
+            "contact_phone": "1-646-501-9274",
+            "contact_email": "simon.henin@nyulangone.org",
+            "contact_website": "https://www.liulabnyu.org/people5",
+            "contact_address": "NYU Langone Department of Neurology, 222 East 41st Street, 14th Floor, New York, NY 10017"
+        },
+        "custom": {},
+        "bids": {
+            "InstitutionName": "*properties.institute",
+            "InstitutionAddress": "*properties.contact_address"
+        }
+    },
+    {
+        "guid": "",
+        "name": "WULAB",
+        "mtype": "lab",
+        "datetime": "",
+        "description": "",
+        "resources": {
+        },
+        "properties": {
+            "official_name": "Wisconsin Institute for Sleep and Consciousness ",
+            "principal_investigator": ["Giulio Tononi"],
+            "institute": "University of Wisconsin-Madison",
+            "department": "Department of Psychiatry",
+            "location": "Madison, WI, United States",
+            "contact_phone": "+1 608-262-7128 ",
+            "contact_email": "gtononi@wisc.edu",
+            "contact_website": "https://centerforsleepandconsciousness.psychiatry.wisc.edu/",
+            "contact_address": "UW Psychiatric Inst & Clinics, 6001 Research Park Blvd, Madison, WI 53719, USA"
+        },
+        "custom": {},
+        "bids": {
+            "InstitutionName": "*properties.institute",
+            "InstitutionAddress": "*properties.contact_address"
+        }
+    },
+    {
+        "guid": "",
+        "name": "HULAB",
+        "mtype": "lab",
+        "datetime": "",
+        "description": "",
+        "resources": {
+        },
+        "properties": {
+            "official_name": "Kreiman Lab",
+            "principal_investigator": ["Gabriel Kreiman"],
+            "institute": "Harvard University",
+            "department": "Children's Hospital Corporation d/b/a Boston Children's Hospital",
+            "location": "Boston, MA, United States",
+            "contact_phone": "",
+            "contact_email": "gabriel.kreiman@childrens.harvard.edu",
+            "contact_website": "https://klab.tch.harvard.edu/",
+            "contact_address": "Centre for Life Sciences, 13th & 18th floor, 13075-13078, Boston, MA, USA"
+        },
+        "custom": {},
+        "bids": {
+            "InstitutionName": "*properties.institute",
+            "InstitutionAddress": "*properties.contact_address"
+        }
+    },
+    {
+        "guid": "",
+        "name": "MPIAE",
+        "mtype": "lab",
+        "datetime": "",
+        "description": "",
+        "resources": {
+        },
+        "properties": {
+            "official_name": "Max Planck Institute of Empirical Aesthetics",
+            "principal_investigator": ["Lucia Melloni"],
+            "institute": "Max Planck Institute of Empirical Aesthetics",
+            "department": " Research Group Neural Circuits, Consciousness, and Cognition ",
+            "location": "Frankfurt am Main, Germany",
+            "contact_phone": "+49 69 8300479-330",
+            "contact_email": "lucia.melloni@ae.mpg.de",
+            "contact_website": "https://www.aesthetics.mpg.de/en/research/research-group-neural-circuits-consciousness-and-cognition.html",
+            "contact_address": "Max Planck Institute for Empirical Aesthetics, Grüneburgweg 14, 60322 Frankfurt am Main, Germany"
+        },
+        "custom": {},
+        "bids": {
+            "InstitutionName": "*properties.institute",
+            "InstitutionAddress": "*properties.contact_address"
+        }
+    },
+    {
+        "guid": "",
+        "name": "REEDLAB",
+        "mtype": "lab",
+        "datetime": "",
+        "description": "",
+        "resources": {
+        },
+        "properties": {
+            "official_name": "Reed College",
+            "principal_investigator": ["Michael Pitts"],
+            "institute": "",
+            "department": "Department of Psychology",
+            "location": "Portland, Oregon, USA",
+            "contact_phone": "",
+            "contact_email": "",
+            "contact_website": "http://www.reed.edu/psychology/scalp",
+            "contact_address": ""
+        },
+        "custom": {},
+        "bids": {
+            "InstitutionName": "*properties.institute",
+            "InstitutionAddress": "*properties.contact_address"
+        }
+    }
+]
