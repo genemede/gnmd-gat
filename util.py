@@ -1,5 +1,6 @@
 import sys
 import os
+import argparse
 from src import core
 from pathlib import Path
 import json
@@ -7,10 +8,21 @@ import uuid
 import csv
 from src import datafaker
 
-def nuker():
+def doNuke(confirm=True):
     # this nukes all data
     # useful for development, should be removed once data is imported / stabilized
     # or at least have some failsafes
+    if core.envvar("ALLOW_NUKER") != "1":
+        print("Nuker is disabled")
+        exit()
+
+    if confirm:
+        print("Type \033[4mnuke\033[0m to confirm:")
+        cn = input()
+        if (cn != "nuke"):
+            print("Cancelled")
+            exit()
+
     if (core.config["folders"]["user_data"]):
         print("Nuking data:\033[1m", core.config["folders"]["user_data"], "\033[0m")
         tot = 0
@@ -20,7 +32,7 @@ def nuker():
                 os.remove(f)
         print(f"{tot} files deleted.")
 
-def test_subjects():
+def doTestSubjects():
     def readcsv(fn):
         nonlocal seedroot
         fn = Path.joinpath(seedroot, fn)
@@ -77,11 +89,13 @@ def test_subjects():
         print(s, f)
 
 
+def doSeeder():
+    if core.envvar("ALLOW_SEEDER") != "1":
+        print("Seeder is disabled")
+        exit()
 
-
-def seeder():
     # seeds full data using existing json files as much as possible
-    nuker()
+    doNuke(False)
 
     def copyvalue(vname, obj, data):
         obj.properties[vname] = data["properties"][vname]
@@ -189,7 +203,7 @@ def seeder():
             # fix wrong name
             if n == "Chris tof Koch": n = "Christof Koch"
             if n == "Maximilian Grobbelaar": n = "Maximillian Grobbelaar"
-            ppl = core.mdata.tmpSearchField("researcher", ["name"], n)
+            ppl = core.mdata.search(n, "researcher", "name")
             if len(ppl) == 1:
                 proj.properties["members"].append({
                     "guid": ppl[0]["guid"],
@@ -237,79 +251,95 @@ def seeder():
     print("Seeding data")
     # str(uuid.uuid4())
 
-#print(sys.argv)
-if len(sys.argv) > 1:
-    if sys.argv[1] == "test":
-        #from faker import Faker
-        # core.mdata.getStats()
-        print("gen test")
+def doDevTest():
+    q = "vans"
+    q = "mills"
+    mt = "researcher"
+    flds = "name"
+    r = core.data.search(q, mt, flds)
+    print(r)
+    #from faker import Faker
+    # core.mdata.getStats()
+    print("gen test")
 
-    if sys.argv[1] == "config":
-        print("= config test =")
-        print(core.serializeConfig())
-        #core.writeConfig()
+def doConfigTest():
+    print("= config test =")
+    print(core.serializeConfig())
 
-    if sys.argv[1] == "dbgmtypes":
-        core.mtypes.dbgdump()
+def doListResource():
+    res = core.data.listResource("project")
+    print(res)
 
-    if sys.argv[1] == "tstlist":
-        res = core.mdata.listResource("project")
-        print(res)
+def doListMtypes():
+    res = core.mtypes.getMtypes
+    print(res)
 
-    if sys.argv[1] == "tstsearch":
-        if len(sys.argv) > 2:
-            res = core.mdata.intExecSearch(sys.argv[2])
-            print("result", res)
+def doFaker():
+    if core.envvar("ALLOW_FAKER") != "1":
+        print("Faker is disabled")
+        exit()
 
-    if sys.argv[1] == "mtypes":
-        res = core.mtypes.getMtypes()
-        print(res)
+    doNuke(False)
 
-    if sys.argv[1] == "findbyguid":
-        if len(sys.argv) > 2:
-            res = core.mdata.findByGuid(sys.argv[2])
-            print(res.serialize())
-            print(res.mtype)
-            print(type(res))
+    df = datafaker.GenemedeDataFaker()
+    df.run()
 
-    if sys.argv[1] == 'faker':
-        df = datafaker.GenemedeDataFaker()
-        df.run()
+def doGuidList():
+    fname = Path(Path().absolute(), 'misc')
+    fname = Path.joinpath(fname, 'guidlist.json')
+    with open(fname, 'w') as f:
+        for i in range(1, 10000):
+            s = str(uuid.uuid4())
+            f.write(s + "\n")
 
-    if sys.argv[1] == 'nuke':
-        if core.envvar("ALLOW_NUKER") != "1":
-            print("Nuker is disabled")
-            exit()
+def doGuids():
+    for i in range(10):
+        print(str(uuid.uuid4()))
 
-        print("Type \033[4mnuke\033[0m to confirm:")
-        cn = input()
-        if (cn == "nuke"):
-            nuker()
-        else:
-            print("Cancelled")
+def doFindByGuid():
+    res = core.data.findByGuid(options.guid)
+    if res:
+        print(res.serialize(4))
+    else:
+        print("Resource not found")
 
-    if sys.argv[1] == 'guidlist':
-        # create fixed guids to use in seeding so that filenames stay the same
-        fname = Path(Path().absolute(), 'misc')
-        fname = Path.joinpath(fname, 'guidlist.json')
-        with open(fname, 'w') as f:
-            for i in range(1, 10000):
-                s = str(uuid.uuid4())
-                f.write(s + "\n")
+def doSearch():
+    q = options.q
+    mt = options.mt
+    f = options.f
+    res = core.data.search(q, mt, f)
+    s = json.dumps(res, indent=4, ensure_ascii=False, cls=core.customEncoder)
+    print(s)
+    #print(res)
 
-    if sys.argv[1] == 'seed':
-        if core.envvar("ALLOW_SEEDER") != "1":
-            print("Seeder is disabled")
-            exit()
+# =====================
+argp = argparse.ArgumentParser()
+subp = argp.add_subparsers()
+subp.add_parser('test', help='used for quickly testing indev stuff').set_defaults(func=doDevTest)
+subp.add_parser('config', help='tests configuration').set_defaults(func=doConfigTest)
+subp.add_parser('dbgmtypes', help='dumps all mtypes into a json file').set_defaults(func=core.mtypes.dbgdump)
+subp.add_parser('tstlist', help='lists resources').set_defaults(func=doListResource)
+subp.add_parser('mtypes', help='lists mtypes').set_defaults(func=doListMtypes)
+subp.add_parser('nuke', help='erases all current data').set_defaults(func=doNuke)
+subp.add_parser('faker', help='creates fake data - WARNING: erases all current data first').set_defaults(func=doFaker)
+subp.add_parser('guidlist', help='create a list of guids to use in seeding so that filenames stay the same').set_defaults(func=doGuidList)
+subp.add_parser('seed', help='seed with predefined data').set_defaults(func=doSeeder)
+subp.add_parser('subjects', help='test data with predefined subjects from arc-cogitate').set_defaults(func=doTestSubjects)
+subp.add_parser('guid', help='outputs a number of guids').set_defaults(func=doGuids)
 
-        seeder()
+p = subp.add_parser('get', help='find resource by guid')
+p.add_argument("guid", action="store")
+p.set_defaults(func=doFindByGuid)
 
-    if sys.argv[1] == 'subjects':
-        test_subjects()
+p = subp.add_parser('search', help='search data')
+p.add_argument("q", action="store")
+p.add_argument("-mt", type=str, action="store", help="specify mtypes to search, separated by commas")
+p.add_argument("-f", type=str, action="store", help="specify fields to search, separated by commas")
+p.set_defaults(func=doSearch)
 
-    if sys.argv[1] == 'guid':
-        for i in range(10):
-            print(str(uuid.uuid4()))
+if len(sys.argv) <= 1:
+    sys.argv.append('--help')
 
-else:
-    print("no action")
+options = argp.parse_args()
+
+options.func()

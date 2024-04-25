@@ -177,7 +177,8 @@ class MetaTypesBroker:
             fname = Path.joinpath(fname, 'dbg_' + mt.mtype + '.json')
             #print("DBG:mtype", mt.mtype, mt.path, 'into', fname)
             #s = json.dumps(mt.data)
-            s = json.dumps(mt.data, indent=4) #, default=set_json_default)
+            #s = json.dumps(mt.data, indent=4) #, default=set_json_default)
+            s = json.dumps(mt.asDict(), indent=4) #, default=set_json_default)
 
             with open(fname, 'w') as f:
                 #f.write(json.dumps(mt.data, indent=4))
@@ -185,7 +186,8 @@ class MetaTypesBroker:
 
         res = {}
         for mt in self.mtypes:
-            res[mt.mtype] = copy.deepcopy(mt.data)
+            #res[mt.mtype] = copy.deepcopy(mt.data)
+            res[mt.mtype] = mt.asDict()
 
         fname = Path(Path().absolute(), 'misc')
         fname = Path.joinpath(fname, 'dbg_all_mtypes.json')

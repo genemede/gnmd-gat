@@ -515,50 +515,18 @@ class DataBrokerClass:
 
         return res
 
-    def intExecSearch(self, q, mtype):
-
-        def checkq():
-            nonlocal v, found
+    def search(self, q, mt = None, flds = None):
+        def checkcur(curvalue):
+            #print("check", curvalue)
+            nonlocal found
+            v = curvalue
+            f = False
             if isinstance(v, str):
                 pp = v.casefold().find(q)
-                if pp >= 0:
-                    found = True
+                f = pp >= 0
+            if f:
+                found = True
 
-        # simple search as a starting point
-        res = []
-        q = q.casefold()
-        if mtype:
-            mtypes = set(mtype.split(','))
-        else:
-            mtypes = None
-
-        # iterate all data objects
-        for obj in self.data:
-
-            # iterate all properties
-            for prop in self.data[obj].properties:
-                # print("OBJ", prop, self.data[obj].properties[prop])
-                found = False
-                v = self.data[obj].properties[prop]
-                checkq()
-                if found:
-                    # string value found, filter by mtypes if specified
-                    if mtypes:
-                        found = self.data[obj].mtype in mtypes
-
-                    if found:
-                        res.append({
-                            "guid": obj,
-                            "mtype": self.data[obj].mtype,
-                            "label": self.data[obj].name
-                        })
-                    break
-
-        return res
-
-    def tmpSearchField(self, mt, flds, q):
-        # find in specific fields
-        # temp function used in seeder/importer
         res = []
         q = q.casefold()
         if mt:
@@ -566,33 +534,47 @@ class DataBrokerClass:
         else:
             mtypes = None
 
-        #print("SEARCH", mt, flds, q)
+        if flds:
+            fields = set(flds.split(','))
+        else:
+            fields = None
 
         # iterate all data objects
         for obj in self.data:
+            # prefilter by mtype if specified
             dothis = True
             if mtypes:
                 dothis = self.data[obj].mtype in mtypes
             if not dothis:
-                #print("skip", self.data[obj].mtype)
                 continue
 
-            # iterate all properties
-            for prop in flds:
-                found = False
-                if prop in self.data[obj].properties:
-                    v = self.data[obj].properties[prop]
-                    if isinstance(v, str):
-                        pp = v.casefold().find(q)
-                        found = pp >= 0
+            cur = self.data[obj]
+            found = False
 
-                if found:
-                    res.append({
-                        "guid": obj,
-                        "mtype": self.data[obj].mtype,
-                        "label": self.data[obj].name
-                    })
-                    break
+            # search loop
+            if fields != None:
+                # if fields is specified
+                for prop in fields:
+                    found = False
+                    if prop == "name":
+                        checkcur(cur.name)
+                    elif prop == "description":
+                        checkcur(cur.description)
+                    else:
+                        if prop in cur.properties:
+                            checkcur(cur.properties[prop])
+            else:
+                # if fields is empty, search all properties
+                checkcur(cur.name)
+                checkcur(cur.description)
+                for prop in self.data[obj].properties:
+                    checkcur(cur.properties[prop])
 
+            # add result when found
+            if found:
+                res.append({
+                    "guid": obj,
+                    "mtype": self.data[obj].mtype,
+                    "label": self.data[obj].name
+                })
         return res
-

@@ -116,9 +116,7 @@ def get_search():
     # only q so far
     q = request.args.get('q', default = None, type = str)
     mtype = request.args.get('mtype', default = None, type = str)
-
-    #data = core.data.execSearch(q, mtype)
-    data = core.data.intExecSearch(q, mtype)
+    data = core.data.search(q, mtype)
 
     return make_response({"data": data}, 200)
 

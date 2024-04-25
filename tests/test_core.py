@@ -46,18 +46,18 @@ class TestTypes(unittest.TestCase):
 class TestData(unittest.TestCase):
     def setUp(self):
         self.tst_researchers = [
-            {"guid": "6c5d7021-843f-4dc8-97f1-c1b4744d5ede", "name":"Researcher 1"},
-            {"guid": "599bdbd0-51f6-405a-894a-911538039512", "name":"Researcher 2"},
-            {"guid": "61a058f4-c555-45ee-8ae4-11e4f09f5cd2", "name":"Researcher 3"},
-            {"guid": "02ae7cfa-6a23-46fb-a9f5-9ec7b96c50d7", "name":"Researcher 4"},
-            {"guid": "567fac31-0fa9-40ca-8370-35010ea59ed2", "name":"Researcher 5"}
+            {"guid": "6c5d7021-843f-4dc8-97f1-c1b4744d5ede", "name":"Researcher 1 - one"},
+            {"guid": "599bdbd0-51f6-405a-894a-911538039512", "name":"Researcher 2 - two"},
+            {"guid": "61a058f4-c555-45ee-8ae4-11e4f09f5cd2", "name":"Researcher 3 - three"},
+            {"guid": "02ae7cfa-6a23-46fb-a9f5-9ec7b96c50d7", "name":"Researcher 4 - four"},
+            {"guid": "567fac31-0fa9-40ca-8370-35010ea59ed2", "name":"Researcher 5 - five"}
         ]
         self.tst_subjects = [
-            {"guid": "6994c90b-52c4-4335-bc65-0891419809c6", "name":"Subject 1"},
-            {"guid": "8eea794b-d310-4087-b0e2-d80af9dbfa8c", "name":"Subject 2"},
-            {"guid": "b9ecae3b-3d1a-4eb7-85a0-2db0ed8660db", "name":"Subject 3"},
-            {"guid": "a2e0f378-0eb6-4f3d-8c9e-09b14e86e0d6", "name":"Subject 4"},
-            {"guid": "5893a520-56c8-4d1f-991c-f902b2979be0", "name":"Subject 5"}
+            {"guid": "6994c90b-52c4-4335-bc65-0891419809c6", "name":"Subject 1 - one"},
+            {"guid": "8eea794b-d310-4087-b0e2-d80af9dbfa8c", "name":"Subject 2 - two"},
+            {"guid": "b9ecae3b-3d1a-4eb7-85a0-2db0ed8660db", "name":"Subject 3 - three"},
+            {"guid": "a2e0f378-0eb6-4f3d-8c9e-09b14e86e0d6", "name":"Subject 4 - four"},
+            {"guid": "5893a520-56c8-4d1f-991c-f902b2979be0", "name":"Subject 5 - five"}
         ]
 
         self.labguid = "73436796-1273-40d5-a8a0-c6c60776dc1c"
@@ -111,6 +111,7 @@ class TestData(unittest.TestCase):
         obj = core.data.new("project", guid=self.projectguid)
         obj.name = "Test Project"
         obj.description = "Original Project Description"
+        obj.properties["project_legacy_management"] = "Legacy management"
         obj.save()
 
     def test_retrieveRecords(self):
@@ -162,6 +163,19 @@ class TestData(unittest.TestCase):
                 self.assertEqual(l[0]["to"], self.tst_researchers[idx]["guid"], "Member / lab linked guid do not match")
             idx += 1
 
+    def test_search(self):
+        # all mtypes, all fields
+        res = core.data.search("three")
+        self.assertEqual(len(res), 2, "Invalid number of search results")
+
+        # specific mtype, all fields
+        res = core.data.search("three", "researcher")
+        self.assertEqual(len(res), 1, "Invalid number of search results")
+
+        # specific mtype, specific field
+        res = core.data.search("Legacy management", "project", "project_legacy_management")
+        self.assertEqual(len(res), 1, "Invalid number of search results")
+
     def test_api(self):
         pass
 
@@ -177,17 +191,9 @@ class TestData(unittest.TestCase):
         self.assertEqual(ok, True, "Error deleting objects")
         pass
 
-
 if core.envvar("ALLOW_TESTS") != "1":
     print("Testing is disabled")
     exit()
 
 load_tests = load_ordered_tests
 unittest.main()
-'''
-move repos to genemede
-
-define questions for beta testing
-basic documentation for ui functions
-
-'''
