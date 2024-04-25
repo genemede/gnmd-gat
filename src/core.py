@@ -148,11 +148,8 @@ def loadConfig():
             # something went wrong, will write full config at the end
             print("Error loading config")
 
-    else:
-        # file doesnt exist, write with defaults
-        writeConfig()
-
     if not ok:
+        # file doesnt exist, write with defaults
         writeConfig()
 
 def cfg_json_serializer(obj):
@@ -205,6 +202,9 @@ def prepareFolders():
     return True
 
 # =======================================
+# make sure at least home folder exists
+this.genemede_home_folder.mkdir(parents=True, exist_ok=True)
+
 loadConfig()
 
 # check folders, create them if they dont exist
