@@ -123,10 +123,11 @@ def get_search():
 # only paths are considered right now; url args will be developed as needed
 # routes asks data broker to execute specified operation and returns api responses
 
-def data_list():
+def data_list(mtype):
     # lists data of specified mtype
-    pth = request.path.split("/")
-    mtype = pth[3]
+    #pth = request.path.split("/")
+    #mtype = pth[3]
+    print("DATA LIST", mtype)
     lst = core.data.listResource(mtype)
     res = {"data": lst}
     return make_response(res, 200)

@@ -506,11 +506,11 @@ class DataBrokerClass:
         # could eventually be done through a more complex search mechanism if implemented
         res = []
         for obj in self.data:
-            # print('XXXXXXXX', obj, self.data[obj].guid, self.data[obj].mtype)
             if self.data[obj].mtype == mtype:
                 res.append({
                     "guid": obj,
-                    "label": "label for " + self.data[obj].mtype
+                    "mtype": self.data[obj].mtype,
+                    "label": self.data[obj].name
                 })
 
         return res
