@@ -47,18 +47,19 @@ this.config = {
         "email": "example@example.com"
     },
     "folders": {
-        "user_data": Path.joinpath(this.genemede_home_folder, 'data'),
-        "user_media": Path.joinpath(this.genemede_home_folder, 'media'),
+        "user_data": Path.joinpath(this.genemede_home_folder, "data"),
+        "user_media": Path.joinpath(this.genemede_home_folder, "media"),
+        "user_scratch": Path.joinpath(this.genemede_home_folder, "scratch"),
 
-        "system_mtypes": Path(Path().absolute(), 'system/mtypes'),
-        "user_mtypes": Path.joinpath(this.genemede_home_folder, 'mtypes/user'),
-        "imported_mtypes": Path.joinpath(this.genemede_home_folder, 'mtypes/imported'),
+        "system_mtypes": Path(Path().absolute(), "system/mtypes"),
+        "user_mtypes": Path.joinpath(this.genemede_home_folder, "mtypes/user"),
+        "imported_mtypes": Path.joinpath(this.genemede_home_folder, "mtypes/imported"),
 
-        "global_sources": Path(Path().absolute(), 'system/sources'),
-        "logfiles": Path.joinpath(this.genemede_home_folder, 'logs'),
+        "global_sources": Path(Path().absolute(), "system/sources"),
+        "logfiles": Path.joinpath(this.genemede_home_folder, "logs"),
 
         #not configurable, always under data
-        "user_deleted_data": Path.joinpath(this.genemede_home_folder, 'data/_deleted')
+        "user_deleted_data": Path.joinpath(this.genemede_home_folder, "data/_deleted")
     }
 }
 
@@ -132,7 +133,7 @@ def loadConfig():
 
                 # folder config
                 if "folders" in js:
-                    for f in ["user_data", "user_media", "system_mtypes", "user_mtypes", "imported_mtypes", "logfiles"]:
+                    for f in ["user_data", "user_media", "user_scratch", "system_mtypes", "user_mtypes", "imported_mtypes", "logfiles"]:
                         if f in js["folders"]:
                             this.config["folders"][f] = Path(js["folders"][f])
 
@@ -178,6 +179,7 @@ def safeDeleteFile(fnameorpath):
         if (
             this.config["folders"]["user_data"] in pth.parents
             or this.config["folders"]["user_media"] in pth.parents
+            or this.config["folders"]["user_scratch"] in pth.parents
             or this.config["folders"]["user_deleted_data"] in pth.parents
             or this.config["folders"]["logfiles"] in pth.parents
         ):
@@ -190,6 +192,7 @@ def safeDeleteFile(fnameorpath):
 def prepareFolders():
     this.config["folders"]["user_data"].mkdir(parents=True, exist_ok=True)
     this.config["folders"]["user_media"].mkdir(parents=True, exist_ok=True)
+    this.config["folders"]["user_scratch"].mkdir(parents=True, exist_ok=True)
 
     # system mtypes are special for now
     # this.config.folders.system_mtypes.mkdir(parents=False, exist_ok=True)

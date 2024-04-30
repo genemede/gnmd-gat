@@ -578,3 +578,20 @@ class DataBrokerClass:
                     "label": self.data[obj].name
                 })
         return res
+
+    def exportData(self):
+        usr = f"{core.config['user']['name']} ({core.config['user']['email']})"
+        res = {
+            "_version": core.config["version_string"],
+            "guid": str(uuid.uuid4()),
+            "modified_at": datetime.now(),
+            "datatype": "export",
+            "name": "Exported Data",
+            "description": "Exported data for " + usr,
+            "data": []
+        }
+        for obj in self.data:
+            cur = self.data[obj]
+            res["data"].append(cur.normalize())
+
+        return res

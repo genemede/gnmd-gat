@@ -285,7 +285,7 @@ def doFaker():
     df.run()
 
 def doGuidList():
-    fname = Path(Path().absolute(), 'misc')
+    fname = core.config["folders"]["user_scratch"]
     fname = Path.joinpath(fname, 'guidlist.json')
     with open(fname, 'w') as f:
         for i in range(1, 10000):
@@ -295,6 +295,14 @@ def doGuidList():
 def doGuids():
     for i in range(10):
         print(str(uuid.uuid4()))
+
+def doExport():
+    res = core.data.exportData()
+    fname = core.config["folders"]["user_scratch"]
+    fname = Path.joinpath(fname, 'dbg_all_data.json')
+    s = json.dumps(res, indent=4, ensure_ascii=False, cls=core.customEncoder)
+    with open(fname, 'w') as f:
+        f.write(s)
 
 def doFindByGuid():
     res = core.data.findByGuid(options.guid)
@@ -326,6 +334,7 @@ subp.add_parser('guidlist', help='create a list of guids to use in seeding so th
 subp.add_parser('seed', help='seed with predefined data').set_defaults(func=doSeeder)
 subp.add_parser('subjects', help='test data with predefined subjects from arc-cogitate').set_defaults(func=doTestSubjects)
 subp.add_parser('guid', help='outputs a number of guids').set_defaults(func=doGuids)
+subp.add_parser('export', help='export the entire dataset into a single json file').set_defaults(func=doExport)
 
 p = subp.add_parser('get', help='find resource by guid')
 p.add_argument("guid", action="store")

@@ -173,7 +173,7 @@ class MetaTypesBroker:
     def dbgdump(self):
         print("Dumping", len(self.mtypes), 'mtypes')
         for mt in self.mtypes:
-            fname = Path(Path().absolute(), 'misc')
+            fname = core.config["folders"]["user_scratch"]
             fname = Path.joinpath(fname, 'dbg_' + mt.mtype + '.json')
             #print("DBG:mtype", mt.mtype, mt.path, 'into', fname)
             #s = json.dumps(mt.data)
@@ -189,7 +189,7 @@ class MetaTypesBroker:
             #res[mt.mtype] = copy.deepcopy(mt.data)
             res[mt.mtype] = mt.asDict()
 
-        fname = Path(Path().absolute(), 'misc')
+        fname = core.config["folders"]["user_scratch"]
         fname = Path.joinpath(fname, 'dbg_all_mtypes.json')
         s = json.dumps(res, indent=4, default=set_json_default)
         with open(fname, 'w') as f:
