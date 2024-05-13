@@ -58,16 +58,18 @@ class MetaType:
         #print("link fields", self.mtype, self._linkFields)
 
     def loadModule(self, fl):
-        #print("mod", self.mtype, fl, fl.stem)
         with open(fl) as json_file:
             data = json.load(json_file)
             if "properties" in data:
                 # only loads module if it has a properties key
-                self.modules[fl.stem] = {
+                mod = {
+                    "name": data["name"] if "name" in data else fl.stem,
+                    "description": data["description"] if "description" in data else fl.stem,
+                    "datatype": "module",
                     "properties": {}
                 }
+                self.modules[fl.stem] = mod
                 self.procFields(self.modules[fl.stem]["properties"], data["properties"])
-            #print(data)
 
     def procFields(self, fldroot, fldlist, included = None):
         # iterates dict with list of fields
@@ -77,6 +79,8 @@ class MetaType:
             self.procField(fldroot, n, v)
 
     def procField(self, fldroot, fldname, fldvalue):
+        # processes a field declaration
+
         def intProcKey(key, defval):
             # adds keys or default value, for important fields
             nonlocal fldname, fldvalue
@@ -106,9 +110,6 @@ class MetaType:
             intProcKey("label", deftext)
             intProcKey("help", deftext)
 
-            if fldroot[fldname]["datatype"] == "link":
-                self._linkFields.add(fldname)
-
             # proc sources
             # possible values:
             # text string, refers to a registered source
@@ -119,8 +120,19 @@ class MetaType:
                     fldroot[fldname]["sources"] = fldvalue["sources"]
                 elif isinstance(fldvalue["sources"], list):
                     core.mtypes.addMTypeSource(self.mtype, fldname, { "codes": fldvalue["sources"]})
+                    fldroot[fldname]["sources"] = self.mtype + "." + fldname
                 else:
                     print("Invalid source type", self.mtype, fldname, type(fldvalue["sources"]))
+
+            # proc subfields (for links)
+            if fldroot[fldname]["datatype"] == "link":
+                self._linkFields.add(fldname)
+                if "properties" in fldvalue:
+                    fldroot[fldname]["properties"] = {}
+                    subfldroot = fldroot[fldname]["properties"]
+                    for n, v in fldvalue["properties"].items():
+                        subfldroot[n] = {}
+                        self.procField(subfldroot, n, v)
 
 
     def procSources(self):
@@ -262,9 +274,24 @@ class MetaTypesBroker:
 
         self.sources[sn] = obj
 
-    def getSource(self, src):
-        if src in self.sources:
-            return self.sources[src]
+    def getSource(self, srcname, api = False):
+        if srcname in self.sources:
+            src = self.sources[srcname]
+            if api:
+                res = {
+                    "name": src["name"],
+                    "description": src["description"],
+                    "codes": []
+                }
+                for key in src["codes"]:
+
+                    res["codes"].append({
+                        "code": key,
+                        "value": src["codes"][key]["value"]
+                    })
+                return res
+            else:
+                return src
         return None
 
     def getSourceValue(self, src, code):

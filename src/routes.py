@@ -13,12 +13,6 @@ class CustomJSONProvider(JSONProvider):
 
 API_PREFIX = "/v0"
 
-class _GnmdRoutes:
-    def r1test(self):
-        return "routetest1"
-
-GnmdRoutes = _GnmdRoutes()
-
 def create_routes(app):
 
     app.json = CustomJSONProvider(app)
@@ -50,11 +44,13 @@ def create_routes(app):
     app.add_url_rule(f'{API_PREFIX}/version', 'get_version', get_version)
     app.add_url_rule(f'{API_PREFIX}/config', 'get_config', get_config)
     app.add_url_rule(f'{API_PREFIX}/mtypes', 'get_mtypes', get_mtypes)
+    app.add_url_rule(f'{API_PREFIX}/sources', 'get_sources', get_sources)
+    app.add_url_rule(f'{API_PREFIX}/sources/<src>', 'get_source_item', get_source_item)
     app.add_url_rule(f'{API_PREFIX}/reload', 'get_reload_data', get_reload_data)
     app.add_url_rule(f'{API_PREFIX}/search', 'search', get_search)
     app.add_url_rule(f'{API_PREFIX}/stats', 'stats_get', stats_get,  methods=['GET'])
 
-    app.add_url_rule(f'{API_PREFIX}/tstr1', 'tstr2', GnmdRoutes.r1test)
+
 
     @app.route('/')
     def index():
@@ -102,6 +98,14 @@ def get_config():
 
 def get_mtypes():
     res = {"data": core.mtypes.getList()}
+    return make_response(res, 200)
+
+def get_sources():
+    res = {"data": core.mtypes.listSources()}
+    return make_response(res, 200)
+
+def get_source_item(src):
+    res = {"data": core.mtypes.getSource(src, api = True)}
     return make_response(res, 200)
 
 def get_reload_data():

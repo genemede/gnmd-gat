@@ -8,30 +8,18 @@ from dateutil.relativedelta import relativedelta
 class GenemedeDataFaker:
     def __init__(self):
         self.faker = None
-        self.total_researchers = 500
-        self.total_subjects = 5000
-        self.total_labs = 10
-        self.total_projects = 50
-        self.total_labs_per_project = 3
-        self.total_researchers_per_project = 20
-        self.total_subjects_per_project = 1000
+        validx = 0
 
-        self.total_researchers = 50
-        self.total_subjects = 500
-        self.total_labs = 5
-        self.total_projects = 10
-        self.total_labs_per_project = 2
-        self.total_researchers_per_project = 10
-        self.total_subjects_per_project = 100
+        self.total_researchers = [10, 50, 500][validx]
+        self.total_subjects = [50, 500, 5000][validx]
+        self.total_labs = [5, 10, 15][validx]
+        self.total_projects = [10, 15, 20][validx]
 
-        self.total_researchers = 10
-        self.total_subjects = 50
-        self.total_labs = 5
-        self.total_projects = 10
-        self.total_labs_per_project = 2
-        self.total_researchers_per_project = 3
-        self.total_subjects_per_project = 5
-        self.total_ethics_per_project = 3
+        self.total_labs_per_project = [2,5,7][validx]
+        self.total_researchers_per_lab = [3,10,20][validx]
+        self.total_researchers_per_project = [3,10,20][validx]
+        self.total_subjects_per_project = [10, 100, 1000][validx]
+        self.total_ethics_per_project = [2,3,5][validx]
 
         # use prepared guids
         gfl = open(Path(Path().absolute(), 'seed/guidlist.json'))
@@ -151,8 +139,23 @@ class GenemedeDataFaker:
             obj.properties["official_name"] = self.faker.name()
             obj.properties["contact_phone"] = self.faker.phone_number()
             obj.properties["contact_email"] = self.faker.email()
-            obj.properties["contact_website"] = self.faker.uri(),
+            obj.properties["contact_website"] = self.faker.uri()
             obj.properties["contact_address"] = self.faker.address()
+
+            # picks random researchers to assign to lab
+            lst = core.data.listResource("researcher")
+            for n in range(self.total_researchers_per_lab):
+                idx = self.faker.random.randrange(len(lst))
+                props = {
+                    "position": self.intRandomFromSource("lab.position"),
+                    "date_joined": self.basedate,
+                    "is_active": "yes"
+                }
+
+                vg = lst[idx]["guid"]
+                obj.addLink("members", vg, props)
+                lst.pop(idx)
+
             obj.save()
         print("Done")
 

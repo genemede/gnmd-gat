@@ -271,8 +271,13 @@ def doListResource():
     print(res)
 
 def doListMtypes():
-    res = core.mtypes.getMtypes
+    res = core.mtypes.getMtypes()
     print(res)
+
+def doListSources():
+    res = core.mtypes.listSources()
+    s = json.dumps(res, indent=4, ensure_ascii=False, cls=core.customEncoder)
+    print(s)
 
 def doFaker():
     if core.envvar("ALLOW_FAKER") != "1":
@@ -328,6 +333,7 @@ subp.add_parser('config', help='tests configuration').set_defaults(func=doConfig
 subp.add_parser('dbgmtypes', help='dumps all mtypes into a json file').set_defaults(func=core.mtypes.dbgdump)
 subp.add_parser('tstlist', help='lists resources').set_defaults(func=doListResource)
 subp.add_parser('mtypes', help='lists mtypes').set_defaults(func=doListMtypes)
+subp.add_parser('sources', help='lists sources').set_defaults(func=doListSources)
 subp.add_parser('nuke', help='erases all current data').set_defaults(func=doNuke)
 subp.add_parser('faker', help='creates fake data - WARNING: erases all current data first').set_defaults(func=doFaker)
 subp.add_parser('guidlist', help='create a list of guids to use in seeding so that filenames stay the same').set_defaults(func=doGuidList)

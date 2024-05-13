@@ -43,7 +43,8 @@ this.config = {
     "json_indent": 4,
     "user": {
         "name": "default user",
-        "screen_name": "default",
+        "screen_name": "default user",
+        "workspace": "genemede",
         "email": "example@example.com"
     },
     "folders": {
@@ -141,7 +142,7 @@ def loadConfig():
 
                 # user config
                 if "user" in js:
-                    for f in ["name", "screen_name", "email"]:
+                    for f in ["name", "screen_name", "workspace", "email"]:
                         if f in js["user"]:
                             this.config["user"][f] = Path(js["user"][f])
             ok = True
