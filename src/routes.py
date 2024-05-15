@@ -1,6 +1,6 @@
 from src import core
 from pathlib import Path
-from flask import Flask, jsonify, request, make_response
+from flask import Flask, jsonify, request, make_response, send_file
 from flask.json.provider import JSONProvider
 import json
 
@@ -47,8 +47,10 @@ def create_routes(app):
     app.add_url_rule(f'{API_PREFIX}/sources', 'get_sources', get_sources)
     app.add_url_rule(f'{API_PREFIX}/sources/<src>', 'get_source_item', get_source_item)
     app.add_url_rule(f'{API_PREFIX}/reload', 'get_reload_data', get_reload_data)
+    app.add_url_rule(f'{API_PREFIX}/export', 'get_export', get_export)
     app.add_url_rule(f'{API_PREFIX}/search', 'search', get_search)
     app.add_url_rule(f'{API_PREFIX}/stats', 'stats_get', stats_get,  methods=['GET'])
+
 
 
 
@@ -114,6 +116,15 @@ def get_reload_data():
     core.mtypes.loadFiles()
     return "Success", 200
 
+def get_export():
+    path = core.data.exportDataToFile()
+    #path = "C:/Users/jorge/genemede/scratch/dbg_all_data.json"
+    return send_file(path, as_attachment=True)
+
+    # exports all data to a downloadable json file
+    ## dbg_all_data.json
+    return make_response(data, 200)
+
 def get_search():
     data = []
     # process args
@@ -147,18 +158,18 @@ def data_get(guid):
 
 def data_put(guid):
     content_type = request.headers.get('Content-Type')
-    print("PUT", content_type)
     if (content_type == 'application/json'):
         data = request.json
         res = core.data.putData(data)
-        return data
-    else:
-        return 'Content-Type not supported!'
+        if res != None:
+            return make_response({"data": res}, 200)
+        else:
+            return make_response(400)
 
-    # gets json payload from body
-    payload = None
-    res = None
-    return {"result": f"PUT RESOURCE {mtype} : {guid}"}
+    else:
+        return make_response({"message": "Content-Type not supported!"}, 400)
+
+    return make_response(400)
 
 def data_post():
     # gets json payload from body

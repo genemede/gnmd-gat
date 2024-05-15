@@ -1,6 +1,6 @@
 {
     "name": "subject",
-    "description": "",
+    "description": "Subject",
     "properties": {
         "creator": {
             "description": "Person who collected the participant information.",

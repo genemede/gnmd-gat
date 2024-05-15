@@ -1,6 +1,7 @@
 {
     "name": "Ethics",
     "description": "Ethics module",
+    "repeatable": true,
     "properties":{
         "responsible_member":{
             "description":"Name of the person responsible for the ethical approval."

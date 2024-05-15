@@ -398,7 +398,8 @@ class DataBrokerClass:
 
     def putData(self, jsn):
         # resource must exist
-        res = False
+        # returns save object with updated control fields
+        res = None
         try:
             if "mtype" in jsn:
                 objmt = jsn["mtype"]
@@ -412,14 +413,13 @@ class DataBrokerClass:
                         obj.created_version = core.config["version_string"]
                         obj.modified_version = core.config["version_string"]
                         obj.save()
-                        res = True
+                        res = obj.normalize()
             else:
                 pass
 
-            res = True
         except Exception as e:
             print("Error", e)
-            res = False
+            res = None
         return res
 
     def getStats(self):
@@ -595,3 +595,14 @@ class DataBrokerClass:
             res["data"].append(cur.normalize())
 
         return res
+
+    def exportDataToFile(self):
+        res = self.exportData()
+        fname = core.config["folders"]["user_scratch"]
+        d = datetime.now()
+        fname = Path.joinpath(fname, "export_" + d.strftime("%Y%m%d%H%M%S") + ".gnmd.json")
+        s = json.dumps(res, indent=4, ensure_ascii=False, cls=core.customEncoder)
+        with open(fname, 'w') as f:
+            f.write(s)
+        return fname
+

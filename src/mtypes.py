@@ -6,6 +6,8 @@ import random
 import json
 from json import JSONEncoder
 import copy
+import logging
+log = logging.getLogger(__name__)
 
 MetaTypeType = NewType("MetaType", object)
 
@@ -16,7 +18,7 @@ class MetaType:
         self.folder = pth.parents[0]
         self.name = ""
         self.description = ""
-        self.namespace = ""
+        self.namespace = ns
         self.fa_icon = "far fa-file-alt"
         self.properties =  {}
         self.modules = {}
@@ -66,6 +68,7 @@ class MetaType:
                     "name": data["name"] if "name" in data else fl.stem,
                     "description": data["description"] if "description" in data else fl.stem,
                     "datatype": "module",
+                    "repeatable": data["repeatable"] if "repeatable" in data else False,
                     "properties": {}
                 }
                 self.modules[fl.stem] = mod
@@ -213,12 +216,22 @@ class MetaTypesBroker:
     def loadFiles(self):
 
         def procFolder(folder: Path, ns):
-            for f in folder.iterdir():
-                if f.is_dir():
-                    if not f.stem.startswith("_"):
-                        fn = Path.joinpath(f, f.stem + ".json")
-                        mt = MetaType(fn, ns)
-                        self.addMtype(mt)
+            ctx = ""
+            try:
+                for f in folder.iterdir():
+                    if f.is_dir():
+                        if not f.stem.startswith("_"):
+                            ctx = f.stem
+                            fn = Path.joinpath(f, f.stem + ".json")
+                            mt = MetaType(fn, ns)
+                            self.addMtype(mt)
+                            ctx = ""
+            except Exception as e:
+                msg = f"Error reading mtypes [{ctx}]"
+                if ns:
+                    msg = msg + f" ({ns})"
+                log.critical(msg)
+                print(msg, e)
 
         # load all mtypes into in-memory structure
         # lifecycle is important, this will be needed to construct routes for api server

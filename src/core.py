@@ -34,7 +34,7 @@ this.config_file = Path.joinpath(this.genemede_home_folder, 'config.json')
 this.gnmdversion = {
     "major": 0,
     "minor": 1,
-    "patch": 11
+    "patch": 12
 }
 
 this.config = {
