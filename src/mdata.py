@@ -84,7 +84,7 @@ class DataResource:
         if "name" in data: self.name = data["name"]
         if "description" in data: self.description = data["description"]
         if "properties" in data: self.properties = data["properties"]
-        if "custom" in data: self.properties = data["custom"]
+        if "custom" in data: self.custom = data["custom"]
 
         # remove link fields if present - links come from dedicated links file
         if is_loading:
@@ -361,7 +361,7 @@ class DataBrokerClass:
     def postData(self, jsn):
         # POST creates new object
         # thus, if guid is specified and already exists (or other unique checking mechanism fails) this fails
-        res = False
+        res = None
 
         try:
             # create object and return guid
@@ -385,14 +385,16 @@ class DataBrokerClass:
                     obj.created_version = core.config["version_string"]
                     obj.modified_version = core.config["version_string"]
                     obj.save()
-                    res = True
+                    res = obj.normalize()
             else:
                 # add specific error to response
                 pass
 
         except Exception as e:
             # TODO: add to log or report
-            res = False
+            s = str(e)
+            log.error(f"Error on postData: " + s)
+            res = None
 
         return res
 
@@ -418,7 +420,8 @@ class DataBrokerClass:
                 pass
 
         except Exception as e:
-            print("Error", e)
+            s = str(e)
+            log.error(f"Error on postData: " + s)
             res = None
         return res
 

@@ -280,7 +280,8 @@ class MetaTypesBroker:
                     if len(s) == 2:
                         obj["codes"][s[0]] = { "value": s[1]}
                     else:
-                        obj["codes"][k] = { "value": k}
+                        slug = k.replace(' ', '_')
+                        obj["codes"][slug] = { "value": k}
             elif isinstance(v, dict):
                 for k in v:
                     x = 1

@@ -24,7 +24,7 @@ def create_routes(app):
     def bef_req():
         # possible solution to allow write access to local ip only
         ip = request.environ.get('REMOTE_ADDR')
-        print(ip)
+        #print(ip)
 
     @app.after_request
     def after_request(response):
@@ -107,6 +107,33 @@ def get_sources():
     return make_response(res, 200)
 
 def get_source_item(src):
+    # special case for sources via API
+    # can retrieve mtype data as a source
+    # this will be improved but it solves several gui issues atm
+
+    p = src.find(":")
+    if (p>0):
+        args = src.split(':')
+        if len(args) == 2:
+            mt = core.mtypes.getMType(args[1])
+            if mt:
+                lst = core.data.listResource(args[1])
+                tmp = {
+                    "name": mt.name,
+                    "description": mt.description,
+                    "codes": []
+                }
+                for obj in lst:
+                    tmp["codes"].append({
+                        "code": obj["guid"],
+                        "value": obj["label"]
+                    })
+                res = {"data": tmp}
+                return make_response(res, 200)
+
+        # if anything fails
+        return make_response(400)
+    # normal sources
     res = {"data": core.mtypes.getSource(src, api = True)}
     return make_response(res, 200)
 
@@ -177,17 +204,18 @@ def data_post():
     # incoming guid is ignored
     # new object has new guid attributed
     content_type = request.headers.get('Content-Type')
-    print("POSTED", content_type)
+
     if (content_type == 'application/json'):
         data = request.json
         res = core.data.postData(data)
-        return data
+        if res != None:
+            return make_response({"data": res}, 200)
+        else:
+            return make_response(400)
     else:
-        return 'Content-Type not supported!'
+        return make_response({"message": "Content-Type not supported!"}, 400)
 
-    payload = None
-    res = None
-    return {"result": f"POST RESOURCE {mtype}"}
+    return make_response(400)
 
 def data_delete(guid):
     pth = request.path.split("/")

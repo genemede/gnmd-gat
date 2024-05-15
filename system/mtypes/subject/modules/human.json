@@ -24,7 +24,7 @@
         },
         "handedness_value": {
             "description": "Handedness based on Edinburgh handedness inventory",
-            "datatype": "text",
+            "datatype": "selection",
             "sources": "ehi-10"
         },
         "primary_language": {
