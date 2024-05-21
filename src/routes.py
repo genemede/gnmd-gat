@@ -33,7 +33,7 @@ def create_routes(app):
 
     guiver = None
     try:
-        with urllib.request.urlopen('https://genemede.github.io/gnmd-gui/testdata.jsone') as fl:
+        with urllib.request.urlopen('https://genemede.github.io/gnmd-gui/version') as fl:
             tmp = fl.read().decode('utf-8')
             guiver = " (v\033[93m" + tmp + "\033[0m)"
 
