@@ -428,7 +428,7 @@ class DataBrokerClass:
     def getStats(self):
         res = {
             "total_files": 0,
-            "total_mtypes": 0
+            "total_mtypes": len(core.mtypes.mtypes)
         }
         res["total_files"] = len(self.data)
         res["mtypes"] = {}

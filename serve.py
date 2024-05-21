@@ -1,11 +1,15 @@
 from src import routes
 from flask import Flask
-print("== SERVING FROM SERVE.PY ==")
+from dotenv import dotenv_values
 
-app = Flask("genemede") #static_url_path='', static_folder='static')
+envvalues = dotenv_values(".env")
+fhost = envvalues["FLASK_RUN_HOST"] if "FLASK_RUN_HOST" in envvalues else "localhost"
+fport = envvalues["FLASK_RUN_PORT"] if "FLASK_RUN_PORT" in envvalues else 5342
+fdebug = (envvalues["FLASK_DEBUG"] == "1") if "FLASK_DEBUG" in envvalues else False
+print("\n== SERVING FROM SERVE.PY ==")
+print(f"{fhost}:{fport} debug:", "on" if fdebug else "off" )
 
-app.json.sort_keys = False
-app.config['JSON_SORT_KEYS'] = False
-
+app = Flask("genemede")
 routes.create_routes(app);
-app.run(debug=True, port=5342)
+
+app.run(debug=fdebug, port=fport)

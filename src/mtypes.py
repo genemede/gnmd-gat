@@ -111,7 +111,7 @@ class MetaType:
             intProcKey("description", deftext)
             intProcKey("datatype", "text")
             intProcKey("label", deftext)
-            intProcKey("help", deftext)
+            #intProcKey("help", deftext)
 
             # proc sources
             # possible values:

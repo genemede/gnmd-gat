@@ -19,7 +19,7 @@ log = logging.getLogger(__name__)
 
 
 
-envvalues = dotenv_values(".env")  # config = {"USER": "foo", "EMAIL": "foo@example.org"}
+envvalues = dotenv_values(".env")
 
 GENEMEDE_ROOT_PATH = Path(Path().absolute())
 
@@ -34,7 +34,7 @@ this.config_file = Path.joinpath(this.genemede_home_folder, 'config.json')
 this.gnmdversion = {
     "major": 0,
     "minor": 1,
-    "patch": 12
+    "patch": 14
 }
 
 this.config = {
@@ -122,6 +122,7 @@ def envvar(k, dv = None):
 # ----------------------------
 
 def loadConfig():
+    core.envvalues = dotenv_values(".env")
     ok = False
     if Path(this.config_file).is_file():
         try:
