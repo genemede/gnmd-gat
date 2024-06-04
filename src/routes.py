@@ -29,7 +29,7 @@ def create_routes(app):
     app.config['JSON_SORT_KEYS'] = False
 
     #app.config["RESTX_JSON"] = {'cls': customEncoder}
-    print("Genemede GAT " + "v\033[93m" + core.config["version_string"] + "\033[0m")
+    print("Genemede GAT " + "v\033[93m" + core.version_string + "\033[0m")
 
     guiver = None
     try:
@@ -136,6 +136,9 @@ def get_config():
         data["dev_info"] = True
     else:
         data.pop("dev_info", None)
+
+    data["version"] = core.gnmdversion
+    data["version_string"] = core.version_string
 
     # add feedback form to config to display in gui
     # simple obfuscation just to thwart url scraping a bit

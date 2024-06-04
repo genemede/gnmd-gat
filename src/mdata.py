@@ -23,8 +23,8 @@ class DataResource:
             self.guid = str(uuid.uuid4())
         self.modified_at = datetime.now()
 
-        self.created_version = core.config["version_string"]
-        self.modified_version = core.config["version_string"]
+        self.created_version = core.version_string
+        self.modified_version = core.version_string
 
         # filename will only be defined if mtype and guid are specified
         # this is done through the property 'filename'
@@ -382,8 +382,8 @@ class DataBrokerClass:
                     obj.assignDict(jsn)
                     # set properties for new object
                     obj.modified_at = datetime.now()
-                    obj.created_version = core.config["version_string"]
-                    obj.modified_version = core.config["version_string"]
+                    obj.created_version = core.version_string
+                    obj.modified_version = core.version_string
                     obj.save()
                     res = obj.normalize()
             else:
@@ -412,8 +412,8 @@ class DataBrokerClass:
                         obj = self.findByGuid(jsn["guid"])
                         obj.assignDict(jsn)
                         obj.modified_at = datetime.now()
-                        obj.created_version = core.config["version_string"]
-                        obj.modified_version = core.config["version_string"]
+                        obj.created_version = core.version_string
+                        obj.modified_version = core.version_string
                         obj.save()
                         res = obj.normalize()
             else:
@@ -585,7 +585,7 @@ class DataBrokerClass:
     def exportData(self):
         usr = f"{core.config['user']['name']} ({core.config['user']['email']})"
         res = {
-            "_version": core.config["version_string"],
+            "_version": core.version_string,
             "guid": str(uuid.uuid4()),
             "modified_at": datetime.now(),
             "datatype": "export",

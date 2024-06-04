@@ -34,12 +34,12 @@ this.config_file = Path.joinpath(this.genemede_home_folder, 'config.json')
 this.gnmdversion = {
     "major": 0,
     "minor": 1,
-    "patch": 14
+    "patch": 15
 }
 
+this.version_string = str(this.gnmdversion["major"]) + "." + str(this.gnmdversion["minor"]) + "." + str(this.gnmdversion["patch"])
+
 this.config = {
-    "version": this.gnmdversion,
-    "version_string": str(this.gnmdversion["major"]) + "." + str(this.gnmdversion["minor"]) + "." + str(this.gnmdversion["patch"]),
     "json_indent": 4,
     "user": {
         "name": "default user",
@@ -164,7 +164,7 @@ def serializeConfig():
     return json.dumps(this.config, indent=4, default=cfg_json_serializer)
 
 def writeConfig():
-    s = serializeConfig()
+    s = this.serializeConfig()
     with open(this.config_file, 'w') as f:
         f.write(s)
 
