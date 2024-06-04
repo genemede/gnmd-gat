@@ -242,10 +242,12 @@ class MetaTypesBroker:
         procFolder(core.config["folders"]["system_mtypes"], "")
 
         # 2 - load user/local mtypes
-        procFolder(core.config["folders"]["user_mtypes"], "user")
+        if core.envvar("DONT_LOAD_USER_MTYPES") != "1":
+            procFolder(core.config["folders"]["user_mtypes"], "user")
 
         # 3 - load imported mtypes
-        procFolder(core.config["folders"]["imported_mtypes"], "imported")
+        if core.envvar("DONT_LOAD_IMPORTED_MTYPES") != "1":
+            procFolder(core.config["folders"]["imported_mtypes"], "imported")
 
         # 4 - load global sources
         p = Path(core.config["folders"]["global_sources"])
